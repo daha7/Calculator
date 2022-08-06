@@ -18,6 +18,10 @@ function clear () {
     out.textContent = 0;
 } 
 
+function add () {
+    alert('JS'); 
+}
+
 document.querySelector('.cpad').onclick = clear; 
 
 document.querySelector( '.btn').onclick = (event) => {
