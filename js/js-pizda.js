@@ -19,16 +19,10 @@ function clear () {
 } 
 
 function add () {
-    alert('JS'); 
-}
-
-document.querySelector('.cpad').onclick = clear; 
-
-document.querySelector( '.btn').onclick = (event) => {
-    // нажата не кнопка 
-    if(!event.target.classList.contains('btn')) return;
+     // нажата не кнопка 
+    if(!add.target.classList.contains('btn')) return;
     // нажата кнопка С 
-    if(event.target.classList.contains('cpad')) return;
+    if(add.target.classList.contains('cpad')) return;
 
     out.textContent = '';
     // Получаю нажатую кнопку 
@@ -86,3 +80,4 @@ document.querySelector( '.btn').onclick = (event) => {
             out.textContent = a; 
         }
 }
+
