@@ -1,83 +1,24 @@
-let a = ''; // Первая переменная    
-let b = ''; // Вторая переменная 
-let sign = ''; // Знак действия
-let finish = false; 
+function insert(num) {
+    document.form.textView.value =
+    document.form.textView.value + num; 
+}
 
-const number = ['0','1','2','3','4','5','6','7','8','9','.'];
-const action = ['-','+','X','/'];
-
-//для экрана 
-
-const out = document.querySelector( '.calc-screen p' );
-
-function clear () {
-    a = '';
-    b = '';
-    sign = '';
-    finish = false;
-    out.textContent = 0;
+function clean() {
+    document.form.textView.value = "";
 } 
 
-function add () {
-     // нажата не кнопка 
-    if(!add.target.classList.contains('btn')) return;
-    // нажата кнопка С 
-    if(add.target.classList.contains('cpad')) return;
-
-    out.textContent = '';
-    // Получаю нажатую кнопку 
-    const key = event.target.textContent; 
-
-    //Если нажата кнопка 0-9 или . 
-    if(number.includes(key)) {
-        if(b === '' && sign === '') {
-            a += key;
-            out.textContent = a;
-        }
-        else if (a!== '' && b!== '' && finish) {
-            b += key;
-            finish = false;
-            out.textContent = b;
-        }
-        else {
-            b += key;
-            out.textContent = b;
-        }
+function equal() {
+    let pisos = document.form.textView.value;
+    if(pisos) {
+        document.form.textView.value = eval(pisos);
     }
+}
 
-        //Если нажата кнопка + - * / 
-        if(number.includes(key)) {
-            sign = key;
-            out.textContent = sign;
-            return;
-        }
+function smile() {
+    document.form.textView.value = 'Ну и зачем?';
+}
 
-        //нажата = 
-        if (key === '=') {
-            if (b === '') b = a; 
-            switch (sign) {
-                case '+':
-                    a = (+a) + (+b);
-                    break;
-                case '-':
-                    a = a - b;
-                    break;
-                case 'X':
-                    a = a * b;
-                    break;
-                case '/':
-                    if (b === '0') {
-                        out.textContent = 'Пошел нахуй преступник';
-                        a = '';
-                        b = '';
-                        sign = '';
-                        return;
-                    }
-                    a = a / b;
-                    break;
-            }
-            finish = true; 
-            out.textContent = a; 
-        }
+function nosmile() {
+    document.form.textView.value = 'Не грусти, хуйца сосни';
 }
 

@@ -12,10 +12,21 @@ h1 {
     color: white;
 }
 
-p {
+input {
+    width: 100%;
+    height: 60px;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    text-align: right;
+    background-color: black;
     color: white;
-    font-size: 36px;
 }
+
+.input {
+    padding: 0;
+}
+
 .buttons {
     width: 70%;
     background-color: black;
